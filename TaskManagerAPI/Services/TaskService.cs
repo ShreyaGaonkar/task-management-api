@@ -49,7 +49,7 @@ namespace TaskManagerAPI.Services
             var hasProjectAccess = await _projectRepository.UserHasAccessToProjectAsync(_userContextService.UserId, _userContextService.Role, projectId);
             if (!hasProjectAccess)
             {
-                throw new BadRequestException(Captions.AccessDenied);
+                throw new ForbiddenException(Captions.AccessDenied);
             }
 
             var taskDTO = new ProjectTask
@@ -112,7 +112,7 @@ namespace TaskManagerAPI.Services
             var hasProjectAccess = await _projectRepository.UserHasAccessToProjectAsync(_userContextService.UserId, _userContextService.Role, projectId);
             if (!hasProjectAccess)
             {
-                throw new BadRequestException(Captions.AccessDenied);
+                throw new ForbiddenException(Captions.AccessDenied);
             }
 
             var paginatedTasks = await _taskRepository.GetPagedAsync(projectId, taskRequestDTO);
@@ -219,7 +219,7 @@ namespace TaskManagerAPI.Services
             var hasProjectAccess = await _projectRepository.UserHasAccessToProjectAsync(_userContextService.UserId, _userContextService.Role, projectId);
             if (!hasProjectAccess)
             {
-                throw new BadRequestException(Captions.AccessDenied);
+                throw new ForbiddenException(Captions.AccessDenied);
             }
         }
 

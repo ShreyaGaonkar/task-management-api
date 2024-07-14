@@ -79,7 +79,7 @@ namespace TaskManagerAPI.Services
             var hasProjectAccess = await _projectRepository.UserHasAccessToProjectAsync(_userContextService.UserId, _userContextService.Role, id);
             if (!hasProjectAccess)
             {
-                throw new BadRequestException(Captions.AccessDenied);
+                throw new ForbiddenException(Captions.AccessDenied);
             }
 
             return ProjectMapper.MapToProjectDTO(project);
@@ -113,7 +113,7 @@ namespace TaskManagerAPI.Services
             var hasProjectAccess = await _projectRepository.UserHasAccessToProjectAsync(_userContextService.UserId, _userContextService.Role, id);
             if (!hasProjectAccess)
             {
-                throw new BadRequestException(Captions.AccessDenied);
+                throw new ForbiddenException(Captions.AccessDenied);
             }
 
             var existingProject = ProjectMapper.MapToProject(projectExist, projectCreateDTO, _userContextService.UserId);

@@ -16,6 +16,8 @@
         public const string TeamNameAlreadyExist = "Team Name Already Exists";
         public const string ProjectNameAlreadyExist = "Project Name Already Exists";
         public const string ProjectTaskNotFound = "Project with the specified task not found";
+        public const string FileUploadError = "No file uploaded";
+        
 
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using TaskManagerAPI.DTO.Request;
 using TaskManagerAPI.DTO.Response;
 using TaskManagerAPI.Exceptions;
+using TaskManagerAPI.Helpers;
 using TaskManagerAPI.Models;
 using TaskManagerAPI.Services;
 
@@ -70,7 +71,7 @@ namespace TaskManagerAPI.Controllers
         {
             if (files == null || files.Count == 0)
             {
-                return BadRequest("No file uploaded.");
+                return BadRequest(Captions.FileUploadError);
             }
 
             try
